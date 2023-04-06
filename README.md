@@ -5,9 +5,9 @@ This program predicts the secondary structure of a protein sequence using a Mult
 ## Prerequisites
 This program requires the following packages to be installed:
 
-Biopython
-Scikit-learn
-Numpy
+- Biopython
+- Scikit-learn
+- Numpy
 
 You can install them using pip:
 ```
