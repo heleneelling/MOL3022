@@ -35,3 +35,7 @@ The predicted secondary structure for the test protein sequence and the accuracy
 
 # Video
 If these instructions were not clear enough, there is a video in the main file folder that shows how the code works, and how to run it. It also shows what is predicted.
+
+
+https://user-images.githubusercontent.com/56873088/230483748-42381ab6-b927-4e5d-b922-28dd87a5d716.mov
+
