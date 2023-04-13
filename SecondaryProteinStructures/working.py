@@ -26,14 +26,14 @@ protein_seq_test, sec_struc_test = read_file(
 
 
 def features(sequences):
-   # get weight, isoelectric_point and GRAVY
-    aa_features = np.zeros((len(sequences), 3))
+   # get weight, isoelectric_point and GRAVY using protein analysis
+    seq_features = np.zeros((len(sequences), 3))
     for i, seq in enumerate(sequences):
         p = ProteinAnalysis(seq)
-        aa_features[i, 0] = p.molecular_weight()
-        aa_features[i, 1] = p.isoelectric_point()
-        aa_features[i, 2] = p.gravy()
-    return aa_features
+        seq_features[i, 0] = p.molecular_weight()
+        seq_features[i, 1] = p.isoelectric_point()
+        seq_features[i, 2] = p.gravy()
+    return seq_features
 
 
 x_train = features(protein_seq_train)
@@ -50,10 +50,10 @@ y_test = [label_dict[label.upper()] for label in sec_struc_test]
 mlp = MLPClassifier(random_state=20)
 mlp.fit(x_train, y_train)
 
-# predict the secondary structure label for each residue in the sequence
+# predict the secondary structure label for the sequences
 y_pred = mlp.predict(x_test)
 
-# Convert numerical labels back to string labels
+# Convert numerical labels back to string labels and print predicted structure
 sec_struc_pred = ''.join([list(label_dict.keys())[list(
     label_dict.values()).index(label)] for label in y_pred])
 
